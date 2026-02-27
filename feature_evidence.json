@@ -1,0 +1,23 @@
+{
+  "kind": "feature_evidence_report",
+  "features": [
+    {
+      "featureId": "feature-add-a-donation-section-to-the-site-wide-footer-component-frontend-src-components-footer-tsx-that-displays-the-uploaded-paypal-qr-code-image-stored-as-frontend-public-assets-generated-paypal-qr-danielle-boylan-dim-300x300-png-the-name-danielle-boylan-a-short-friendly-message-encouraging-users-to-support-the-tool-e-g-if-this-tool-helped-you-consider-buying-me-a-coffee-and-a-label-reading-scan-to-donate-via-paypal-the-section-should-appear-above-the-existing-footer-content-and-be-visually-distinct-but-consistent-with-the-app-s-design-system",
+      "featureTitle": "Add a donation section to the site-wide Footer component (frontend/src/components/Footer.tsx) that displays the uploaded PayPal QR code image (stored as frontend/public/assets/generated/paypal-qr-danielle-boylan.dim_300x300.png), the name 'Danielle Boylan', a short friendly message encouraging users to support the tool (e.g. 'If this tool helped you, consider buying me a coffee ☕'), and a label reading 'Scan to donate via PayPal'. The section should appear above the existing footer content and be visually distinct but consistent with the app's design system.",
+      "files": [
+        "frontend/src/components/Footer.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-1"
+      ],
+      "confidence": "high"
+    }
+  ]
+}

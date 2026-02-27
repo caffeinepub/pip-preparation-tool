@@ -1,0 +1,37 @@
+{
+  "schemaVersion": "1.0.0",
+  "projectStateVersion": 3,
+  "summary": "A PIP2 assessment tool with expanded resources, printable/exportable summary feature, and a donation section with PayPal QR code in the footer.",
+  "architectural_notes": [],
+  "known_issues": [],
+  "isFixRequest": false,
+  "imageRequirements": "## Edit Images\n- Crop to the QR code card area only, removing the surrounding light-blue background and large whitespace, keeping the PayPal label beneath the code (pp_my_qrcode_1772217875112.jpg > paypal-qr-danielle-boylan.dim_300x300.png)",
+  "existing_features": [
+    {
+      "id": "feature-add-a-donation-section-to-the-site-wide-footer-component-frontend-src-components-footer-tsx-that-displays-the-uploaded-paypal-qr-code-image-stored-as-frontend-public-assets-generated-paypal-qr-danielle-boylan-dim-300x300-png-the-name-danielle-boylan-a-short-friendly-message-encouraging-users-to-support-the-tool-e-g-if-this-tool-helped-you-consider-buying-me-a-coffee-and-a-label-reading-scan-to-donate-via-paypal-the-section-should-appear-above-the-existing-footer-content-and-be-visually-distinct-but-consistent-with-the-app-s-design-system",
+      "title": "Add a donation section to the site-wide Footer component (frontend/src/components/Footer.tsx) that displays the uploaded PayPal QR code image (stored as frontend/public/assets/generated/paypal-qr-danielle-boylan.dim_300x300.png), the name 'Danielle Boylan', a short friendly message encouraging users to support the tool (e.g. 'If this tool helped you, consider buying me a coffee ☕'), and a label reading 'Scan to donate via PayPal'. The section should appear above the existing footer content and be visually distinct but consistent with the app's design system.",
+      "reqIds": [
+        "REQ-1"
+      ],
+      "version": 1
+    }
+  ],
+  "new_feature_requests": [
+    {
+      "id": "AR-1",
+      "summary": "Add printable/exportable summary of drafted PIP2 answers and evidence list",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-2",
+      "summary": "Add donation section with PayPal QR code in the footer of every page",
+      "reqIds": [],
+      "status": "pending"
+    }
+  ],
+  "gameProjectType": "none",
+  "projectName": "PIP2 Assessment Tool",
+  "clarification_mode": "instant",
+  "clarification_rounds": 0
+}

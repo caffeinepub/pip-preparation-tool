@@ -1,0 +1,38 @@
+{
+  "kind": "coverage_report",
+  "version": "1.0",
+  "generatedAt": "2026-02-27T18:54:14.144Z",
+  "sources": {
+    "buildRequest": true,
+    "implementationPlan": true
+  },
+  "requirements": {
+    "total": 1,
+    "implemented": 1,
+    "items": [
+      {
+        "id": "REQ-1",
+        "summary": "Add a donation section to the site-wide Footer component (frontend/src/components/Footer.tsx) that displays the uploaded PayPal QR code image (stored as frontend/public/assets/generated/paypal-qr-danielle-boylan.dim_300x300.png), the name 'Danielle Boylan', a short friendly message encouraging users to support the tool (e.g. 'If this tool helped you, consider buying me a coffee ☕'), and a label reading 'Scan to donate via PayPal'. The section should appear above the existing footer content and be visually distinct but consistent with the app's design system.",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/components/Footer.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/components/Footer.tsx"
+        ]
+      }
+    ]
+  },
+  "changedFiles": [
+    "build-request.json",
+    "feature_evidence.json",
+    "frontend-file-summaries.txt",
+    "frontend-implementation-plan.json",
+    "frontend/public/assets/generated/paypal-qr-danielle-boylan.dim_300x300.png",
+    "frontend/src/components/Footer.tsx",
+    "project_state.json",
+    "scratch/component-selection.json",
+    "spec.md",
+    "spec_vs_diff_report.json"
+  ]
+}

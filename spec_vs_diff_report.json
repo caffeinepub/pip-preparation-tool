@@ -1,0 +1,23 @@
+{
+  "kind": "spec_vs_diff_report",
+  "version": "1.0",
+  "generatedAt": "2026-02-27T18:54:14.141Z",
+  "summary": "The diff shows that Footer.tsx has been updated with a donation section that includes the PayPal QR code image, the name 'Danielle Boylan', a friendly donation message, and the 'Scan to donate via PayPal' label. The section appears above existing footer content and uses the app's design system tokens. The image is served from the correct static path. High-contrast mode support is implied via the existing CSS system. However, the actual PNG asset file does not appear in the diff as an added file, which is a potential gap. All other requirements appear to be addressed.",
+  "missing_requirements": [
+    {
+      "id": "REQ-1",
+      "requirement": "The PayPal QR code image must be stored as frontend/public/assets/generated/paypal-qr-danielle-boylan.dim_300x300.png",
+      "reason": "The diff shows no added files, and the PNG asset is not listed as added. The Footer.tsx references the image at /assets/generated/paypal-qr-danielle-boylan.dim_300x300.png, but the actual image file does not appear to have been added to the repository in this diff.",
+      "evidence": [
+        "frontend/src/components/Footer.tsx"
+      ]
+    }
+  ],
+  "hallucinated_features": [],
+  "confidence": 0.8,
+  "changed_files": [
+    "frontend-file-summaries.txt",
+    "frontend/src/components/Footer.tsx",
+    "project_state.json"
+  ]
+}

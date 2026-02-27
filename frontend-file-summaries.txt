@@ -1,0 +1,18 @@
+{
+  "frontend/src/index.css": "Global styles with blues-and-greys OKLCH colour system, custom fonts, high-contrast mode, accessible focus indicators, and reusable component utilities — with `text-foreground/80` replaced by `text-muted-foreground` to fix the PostCSS build error.",
+  "frontend/tailwind.config.js": "Extended Tailwind config with Inter/Merriweather font families, blues-and-greys colour palette including success/warning/crisis tokens, and card shadow utility.",
+  "frontend/src/hooks/useLocalStorage.ts": "Reusable custom hook for localStorage persistence with JSON serialisation, error handling, and cross-tab sync via storage events.",
+  "frontend/src/hooks/useHighContrastMode.ts": "Custom hook that reads/writes high-contrast mode preference to localStorage and applies/removes the high-contrast class on the document root.",
+  "frontend/src/hooks/useQueries.ts": "Placeholder file for React Query hooks; no backend queries are needed as all data is stored in localStorage.",
+  "frontend/src/data/pipActivities.ts": "Static data file exporting an array of 12 PIP2 activity objects, each with id, title, question, plain-English explanation, and tips array.",
+  "frontend/src/components/Header.tsx": "Sticky navigation header with app branding, all six nav links with active-state highlighting, responsive mobile hamburger menu, and accessible high-contrast mode toggle.",
+  "frontend/src/components/Footer.tsx": "Site-wide footer with a new donation section at the top featuring the PayPal QR code image for Danielle Boylan, a friendly support message, and a \"Scan to donate via PayPal\" label, followed by the existing privacy notice, DWP disclaimer, quick links, copyright, and caffeine.ai attribution.",
+  "frontend/src/pages/HomePage.tsx": "Landing page with hero section, mandatory DWP disclaimer alert, DWP phone number callout, feature cards grid, and privacy assurance section.",
+  "frontend/src/pages/ChecklistPage.tsx": "Interactive six-step PIP claim checklist with progress bar, localStorage persistence, accessible toggle buttons, and contextual action links.",
+  "frontend/src/pages/FormPreparationPage.tsx": "Guided PIP2 form preparation page with 12 accordion-style activity sections, each showing the question, explanation, tips, and an auto-saving textarea.",
+  "frontend/src/pages/EvidenceHelperPage.tsx": "Evidence helper page with a persistent evidence checklist (8 items) and a simulated document list where users can add/remove name-and-date entries stored in localStorage.",
+  "frontend/src/pages/AssessmentGuidePage.tsx": "Assessment preparation guide with process explanation, six key tips cards, eight common assessment questions with guidance, and post-assessment information.",
+  "frontend/src/pages/ResourcesPage.tsx": "Expanded Resources & Support page with nine categorised sections — Crisis Support, Official Resources, PIP Appeal & Mandatory Reconsideration, Benefits Calculators, Support Organisations, Legal Aid & Welfare Rights, Disability Charities & Advocacy, Mental Health Support, and Local & Practical Support — each using a reusable ResourceSection component with accessible external links opening in new tabs.",
+  "frontend/src/pages/PrivacyNoticePage.tsx": "Privacy notice page explaining local-only data storage, listing all stored keys, and providing three methods to clear data including an in-page clear-all button.",
+  "frontend/src/App.tsx": "Main app component with TanStack Router configuration, all seven routes wired up, and a Layout component wrapping Header/Outlet/Footer."
+}

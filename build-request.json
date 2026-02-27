@@ -1,0 +1,46 @@
+{
+  "kind": "build_request",
+  "title": "Add donation section with PayPal QR code to footer",
+  "projectName": "PIP Claim Helper",
+  "priority": "normal",
+  "requirements": [
+    {
+      "id": "REQ-1",
+      "text": "Add a donation section to the site-wide Footer component (frontend/src/components/Footer.tsx) that displays the uploaded PayPal QR code image (stored as frontend/public/assets/generated/paypal-qr-danielle-boylan.dim_300x300.png), the name 'Danielle Boylan', a short friendly message encouraging users to support the tool (e.g. 'If this tool helped you, consider buying me a coffee ☕'), and a label reading 'Scan to donate via PayPal'. The section should appear above the existing footer content and be visually distinct but consistent with the app's design system.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-recent-1",
+          "msg-recent-2"
+        ],
+        "quotes": [
+          "Add a donation section I can add my PayPal",
+          "I'll add the donation section to the bottom of every page (footer) featuring your PayPal QR code image with a friendly message encouraging users to support the tool."
+        ]
+      },
+      "acceptanceCriteria": [
+        "The PayPal QR code image is displayed in the footer on every page of the app.",
+        "The name 'Danielle Boylan' and a friendly donation message are shown alongside the QR code.",
+        "A label 'Scan to donate via PayPal' is present beneath or beside the QR code.",
+        "The donation section appears on all seven routes (Home, Checklist, FormPrep, Evidence, Assessment, Resources, Privacy).",
+        "The section styling is consistent with the existing app design system (colours, typography, spacing).",
+        "High-contrast mode correctly applies to the donation section."
+      ]
+    }
+  ],
+  "constraints": [
+    "Do not modify any files listed in frontend.immutablePaths.",
+    "The PayPal QR code image must be served as a static asset from frontend/public/assets/generated/ and not routed through the backend."
+  ],
+  "nonGoals": [
+    "Adding a PayPal payment integration or redirect link — QR code only.",
+    "Creating a dedicated donations page.",
+    "Modifying the backend."
+  ],
+  "imageRequirements": {
+    "required": [],
+    "edits": [
+      "Crop to the QR code card area only, removing the surrounding light-blue background and large whitespace, keeping the PayPal label beneath the code (pp_my_qrcode_1772217875112.jpg > paypal-qr-danielle-boylan.dim_300x300.png)"
+    ]
+  }
+}

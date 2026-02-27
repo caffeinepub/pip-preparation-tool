@@ -1,0 +1,26 @@
+{
+  "kind": "implementation_plan",
+  "version": "1.0",
+  "title": "Add donation section with PayPal QR code to footer",
+  "requirements": [
+    {
+      "id": "REQ-1",
+      "summary": "Add a donation section to the site-wide Footer component displaying the PayPal QR code image (frontend/public/assets/generated/paypal-qr-danielle-boylan.dim_300x300.png), the name 'Danielle Boylan', a friendly message encouraging users to support the tool, and a 'Scan to donate via PayPal' label",
+      "acceptanceCriteria": [
+        "The PayPal QR code image is displayed in the footer on every page of the app.",
+        "The name 'Danielle Boylan' and a friendly donation message are shown alongside the QR code.",
+        "A label 'Scan to donate via PayPal' is present beneath or beside the QR code.",
+        "The donation section appears on all seven routes (Home, Checklist, FormPrep, Evidence, Assessment, Resources, Privacy).",
+        "The section styling is consistent with the existing app design system (colours, typography, spacing).",
+        "High-contrast mode correctly applies to the donation section."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/Footer.tsx",
+          "operation": "modify",
+          "description": "Add a donation section above the existing footer content that displays the PayPal QR code image from frontend/public/assets/generated/paypal-qr-danielle-boylan.dim_300x300.png, the name 'Danielle Boylan', a friendly message such as 'If this tool helped you, consider buying me a coffee ☕', and a label reading 'Scan to donate via PayPal'. Style the section to be visually distinct using the app's existing design system (OKLCH custom properties, Tailwind utilities) with appropriate spacing, borders or background to separate it from other footer content. Ensure the QR code image has appropriate alt text for accessibility and that all text and the image respect high-contrast mode styling. The section should use responsive layout (flex or grid) to display the QR code and text content side-by-side on larger screens and stack vertically on mobile."
+        }
+      ]
+    }
+  ]
+}
