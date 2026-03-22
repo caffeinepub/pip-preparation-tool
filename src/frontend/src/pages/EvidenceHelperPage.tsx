@@ -3,7 +3,9 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { useLocalStorage } from "@/hooks/useLocalStorage";
+import { Link } from "@tanstack/react-router";
 import {
+  ArrowLeft,
   Calendar,
   CheckCircle2,
   Circle,
@@ -115,6 +117,21 @@ export function EvidenceHelperPage() {
       id="main-content"
       className="flex-1 max-w-3xl mx-auto px-4 sm:px-6 py-8 sm:py-12 w-full"
     >
+      {/* Back Button */}
+      <div className="mb-6">
+        <Button
+          asChild
+          variant="ghost"
+          size="sm"
+          className="-ml-2 text-muted-foreground hover:text-foreground"
+        >
+          <Link to="/checklist">
+            <ArrowLeft className="w-4 h-4 mr-1" aria-hidden="true" />
+            Back to Checklist
+          </Link>
+        </Button>
+      </div>
+
       {/* Page Header */}
       <div className="mb-8">
         <h1 className="font-heading text-2xl sm:text-3xl font-bold text-foreground mb-2">

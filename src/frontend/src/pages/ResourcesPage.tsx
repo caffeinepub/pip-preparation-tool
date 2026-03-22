@@ -1,4 +1,5 @@
 import { Badge } from "@/components/ui/badge";
+import { useLocalStorage } from "@/hooks/useLocalStorage";
 import {
   AlertCircle,
   Brain,
@@ -330,6 +331,10 @@ function ResourceSection({ id, title, icon, resources }: SectionProps) {
 }
 
 export function ResourcesPage() {
+  const [adminResourceLinks] = useLocalStorage<
+    Array<{ id: string; title: string; url: string; description: string }>
+  >("pip-admin-resource-links", []);
+
   return (
     <main
       id="main-content"
@@ -444,6 +449,48 @@ export function ResourcesPage() {
         icon={<MapPin className="w-5 h-5 text-primary" aria-hidden="true" />}
         resources={localSupportResources}
       />
+
+      {/* Admin-Added Resources */}
+      {adminResourceLinks.length > 0 && (
+        <section aria-labelledby="additional-resources" className="mb-8">
+          <h2
+            id="additional-resources"
+            className="font-heading text-xl font-bold text-foreground mb-4 flex items-center gap-2"
+          >
+            <ExternalLink className="w-5 h-5 text-primary" aria-hidden="true" />
+            Additional Resources
+          </h2>
+          <div className="space-y-3">
+            {adminResourceLinks.map((link) => (
+              <div
+                key={link.id}
+                className="flex items-start justify-between gap-4 p-4 bg-card rounded-xl border border-border shadow-sm hover:shadow-md transition-shadow"
+              >
+                <div className="flex-1 min-w-0">
+                  <p className="text-sm font-semibold text-foreground mb-1">
+                    {link.title}
+                  </p>
+                  {link.description && (
+                    <p className="text-xs text-muted-foreground mb-2">
+                      {link.description}
+                    </p>
+                  )}
+                  <a
+                    href={link.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1 text-xs text-primary underline hover:no-underline"
+                    data-ocid="resources.link"
+                  >
+                    Visit{" "}
+                    <ExternalLink className="w-3 h-3" aria-hidden="true" />
+                  </a>
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+      )}
 
       {/* Disclaimer */}
       <div className="mt-8 p-4 bg-muted/50 rounded-lg border border-border">

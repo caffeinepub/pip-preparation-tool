@@ -8,4 +8,8 @@ export interface None {
 }
 export type Option<T> = Some<T> | None;
 export interface backendInterface {
+    getPageVisits(): Promise<Array<[string, bigint]>>;
+    getVisitCount(): Promise<bigint>;
+    recordPageVisit(page: string): Promise<void>;
+    recordVisit(): Promise<void>;
 }

@@ -1,5 +1,6 @@
 import { Alert, AlertDescription } from "@/components/ui/alert";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { useLanguage } from "@/context/LanguageContext";
 import {
   AlertTriangle,
   CheckCircle,
@@ -109,6 +110,7 @@ const keyTips = [
 ];
 
 export function AssessmentGuidePage() {
+  const { t } = useLanguage();
   return (
     <main
       id="main-content"
@@ -117,11 +119,10 @@ export function AssessmentGuidePage() {
       {/* Page Header */}
       <div className="mb-8">
         <h1 className="font-heading text-2xl sm:text-3xl font-bold text-foreground mb-2">
-          Assessment Preparation Guide
+          {t("assessment.title")}
         </h1>
         <p className="text-muted-foreground leading-relaxed">
-          Understanding what to expect at your PIP assessment can help reduce
-          anxiety and ensure you present your case as clearly as possible.
+          {t("assessment.intro")}
         </p>
       </div>
 

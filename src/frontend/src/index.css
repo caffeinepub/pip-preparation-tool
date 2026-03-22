@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Merriweather:wght@400;700&display=swap");
 
 @tailwind base;
@@ -146,4 +147,75 @@
   .crisis-card {
     @apply bg-crisis/10 border-2 border-crisis/40 rounded-lg p-6;
   }
+}
+
+/* Text size accessibility classes */
+.text-size-large {
+  font-size: 110%;
+}
+
+.text-size-xl {
+  font-size: 125%;
+}
+
+/* Print styles for letter template */
+@media print {
+  .print\:hidden {
+    display: none !important;
+  }
+  .print\:block {
+    display: block !important;
+  }
+  header,
+  footer,
+  nav {
+    display: none !important;
+  }
+}
+
+/* Easy Read mode */
+.easy-read body,
+body.easy-read {
+  font-size: 1.125rem;
+  line-height: 1.8;
+  letter-spacing: 0.01em;
+}
+
+body.easy-read p,
+body.easy-read li,
+body.easy-read label,
+body.easy-read span,
+body.easy-read div {
+  line-height: 1.8;
+}
+
+body.easy-read p + p,
+body.easy-read .space-y-3 > *,
+body.easy-read .space-y-4 > * {
+  margin-top: 1.25em;
+}
+
+/* Dyslexia-friendly font */
+.dyslexia-font,
+.dyslexia-font * {
+  font-family: "Lexend", sans-serif !important;
+  letter-spacing: 0.05em;
+  word-spacing: 0.1em;
+  line-height: 1.8;
+}
+
+/* News ticker marquee animation */
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  animation: marquee 30s linear infinite;
+  display: inline-flex;
+  gap: 2rem;
 }

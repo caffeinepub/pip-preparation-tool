@@ -1,3 +1,4 @@
+import { ShareBar } from "@/components/ShareBar";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { Button } from "@/components/ui/button";
 import {
@@ -7,6 +8,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import { useLanguage } from "@/context/LanguageContext";
 import { Link } from "@tanstack/react-router";
 import {
   AlertTriangle,
@@ -15,8 +17,28 @@ import {
   CheckCircle,
   ClipboardList,
   FileText,
+  MapPin,
   Phone,
 } from "lucide-react";
+
+interface Notice {
+  id: string;
+  title: string;
+  body: string;
+  date: string;
+  active: boolean;
+}
+
+function loadActiveNotices(): Notice[] {
+  try {
+    const all = JSON.parse(
+      localStorage.getItem("pip-notices") ?? "[]",
+    ) as Notice[];
+    return all.filter((n) => n.active);
+  } catch {
+    return [];
+  }
+}
 
 const features = [
   {
@@ -50,6 +72,9 @@ const features = [
 ];
 
 export function HomePage() {
+  const { t } = useLanguage();
+  const notices = loadActiveNotices();
+
   return (
     <main id="main-content" className="flex-1">
       {/* Hero Section */}
@@ -79,9 +104,7 @@ export function HomePage() {
               Prepare Your PIP Claim with Confidence
             </h1>
             <p className="text-primary-foreground/90 text-lg sm:text-xl mb-8 leading-relaxed">
-              A free, private tool to help you gather information, draft your
-              answers, and prepare for your Personal Independence Payment
-              assessment — all saved securely on your device.
+              {t("home.hero.subtitle")}
             </p>
             <div className="flex flex-col sm:flex-row gap-3">
               <Button
@@ -90,7 +113,7 @@ export function HomePage() {
                 className="bg-primary-foreground text-primary hover:bg-primary-foreground/90 font-semibold text-base px-8"
               >
                 <Link to="/checklist">
-                  Start Preparing Your Claim
+                  {t("home.hero.cta")}
                   <ArrowRight className="ml-2 w-5 h-5" aria-hidden="true" />
                 </Link>
               </Button>
@@ -103,9 +126,66 @@ export function HomePage() {
                 <Link to="/resources">View Resources</Link>
               </Button>
             </div>
+            <div className="mt-5">
+              <p className="text-primary-foreground/70 text-xs font-medium uppercase tracking-wide mb-2">
+                Share this tool:
+              </p>
+              <ShareBar
+                url={
+                  typeof window !== "undefined" ? window.location.origin : ""
+                }
+                text="Free PIP preparation tool to help you claim Personal Independence Payment with confidence. No login required."
+                className="[&>button]:border-primary-foreground/40 [&>button]:text-primary-foreground [&>button]:hover:bg-primary-foreground/10"
+              />
+            </div>
           </div>
         </div>
       </section>
+
+      {/* Latest Updates / Notices */}
+      {notices.length > 0 && (
+        <section
+          className="max-w-6xl mx-auto px-4 sm:px-6 py-6"
+          aria-labelledby="notices-heading"
+          data-ocid="home.section"
+        >
+          <h2
+            id="notices-heading"
+            className="font-heading text-lg font-bold text-foreground mb-4 flex items-center gap-2"
+          >
+            <MapPin className="w-5 h-5 text-primary" aria-hidden="true" />
+            Latest Updates
+          </h2>
+          <div className="space-y-3">
+            {notices.map((notice) => (
+              <div
+                key={notice.id}
+                className="bg-primary/5 border border-primary/20 rounded-lg p-4"
+                data-ocid="home.card"
+              >
+                <div className="flex items-start justify-between gap-3 flex-wrap">
+                  <h3 className="font-semibold text-foreground text-sm">
+                    {notice.title}
+                  </h3>
+                  <time
+                    className="text-xs text-muted-foreground flex-shrink-0"
+                    dateTime={notice.date}
+                  >
+                    {new Date(notice.date).toLocaleDateString("en-GB", {
+                      day: "numeric",
+                      month: "short",
+                      year: "numeric",
+                    })}
+                  </time>
+                </div>
+                <p className="text-sm text-muted-foreground mt-1 leading-relaxed">
+                  {notice.body}
+                </p>
+              </div>
+            ))}
+          </div>
+        </section>
+      )}
 
       {/* Mandatory Disclaimer */}
       <section
@@ -118,13 +198,10 @@ export function HomePage() {
             aria-hidden="true"
           />
           <AlertTitle className="text-warning-foreground font-semibold text-base">
-            Important: Please Read Before Using This Tool
+            {t("home.disclaimer.title")}
           </AlertTitle>
           <AlertDescription className="text-warning-foreground/90 mt-1 leading-relaxed">
-            <strong>This tool is for preparation only.</strong> It is not
-            affiliated with the UK government or the Department for Work and
-            Pensions (DWP). This app does not submit your claim or guarantee an
-            award.{" "}
+            {t("home.disclaimer.body")}{" "}
             <strong>
               To start your PIP claim, you must call the DWP on{" "}
               <a
@@ -237,14 +314,10 @@ export function HomePage() {
                 id="privacy-assurance"
                 className="font-semibold text-foreground text-lg mb-2"
               >
-                Your Data Stays on Your Device
+                {t("home.privacy.title")}
               </h2>
               <p className="text-muted-foreground text-sm leading-relaxed max-w-2xl">
-                This tool does not require an account or login. All your
-                answers, checklist progress, and document notes are saved only
-                in your browser's local storage — they never leave your device
-                and are never sent to any server. You can clear your data at any
-                time.{" "}
+                {t("home.privacy.body")}{" "}
                 <Link
                   to="/privacy"
                   className="text-primary underline hover:no-underline focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring rounded"
